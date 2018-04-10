@@ -13,7 +13,7 @@ try:
   browser = webdriver.Chrome()
   browser.get(url)
   print browser.title
-  test_text = browser.find_element_by_css_selectors('#block-0497bd540a1b86052db6 > div > h2 > em')
+  test_text = browser.find_element_by_css_selector('#block-0497bd540a1b86052db6 > div > h2 > em')
   print test_text.text
   browser.quit()
 except Exception as e:
