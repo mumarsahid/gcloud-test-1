@@ -13,12 +13,13 @@ url = 'http://www.detik.com/'
 print 'THIS IS TEST UMAR (browsing with chrome) for:', url
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(30)
+driver.implicitly_wait(15)
 
 ### result ###
 result = []
 
-limitation = driver.find_element_by_class_name('container')
+limitation = driver.find_element_by_tag_name('body')
+limitation = limitation.find_element_by_class_name('container')
 limitation = limitation.find_element_by_class_name('content')
 limitation = limitation.find_element_by_class_name('m_content')
 limitation = limitation.find_element_by_id('newsfeed-container')
@@ -43,7 +44,7 @@ for idx in range(len(limitation)):
     result.append(dict_data)
     
 file_name = 'detik - '+datetime.datetime.now().year+datetime.datetime.now().month+datetime.datetime.now().date
-with open('~/gcloud-test-1/dataset/'+file_name+'.txt', 'w') as outfile:
+with open('~/gcloud-test-1/'+file_name+'.txt', 'w') as outfile:
     json.dump(result, outfile)
 
 display.stop()
