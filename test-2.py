@@ -17,7 +17,8 @@ driver = webdriver.Chrome()
 ### result ###
 result = []
 
-limitation = driver.find_element_by_id('newsfeed-container')
+limitation = driver.find_element_by_class_name('m_content')
+limitation = limitation.find_element_by_id('newsfeed-container')
 limitation = limitation.find_elements_by_tag_name('article')
 
 for idx in range(len(limitation)):
