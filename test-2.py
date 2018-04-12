@@ -25,6 +25,9 @@ for idx in range(len(limitation)):
     a = limitation[idx].find_element_by_class_name('desc_nhl')
     a = a.find_element_by_tag_name('a')
     
+    ### for printing ###
+    print a.text
+    
     ### Title ###
     dict_data.update({'title':a.text})
     
