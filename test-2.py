@@ -10,14 +10,17 @@ display.start()
 
 url = 'http://www.detik.com/'
 
-print 'THIS IS TEST UMAR (browsing with chrome), ', url
+print 'THIS IS TEST UMAR (browsing with chrome) for:', url
 
 driver = webdriver.Chrome()
+driver.implicitly_wait(30)
 
 ### result ###
 result = []
 
-limitation = driver.find_element_by_class_name('m_content')
+limitation = driver.find_element_by_class_name('container')
+limitation = limitation.find_element_by_class_name('content')
+limitation = limitation.find_element_by_class_name('m_content')
 limitation = limitation.find_element_by_id('newsfeed-container')
 limitation = limitation.find_elements_by_tag_name('article')
 
