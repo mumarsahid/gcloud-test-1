@@ -50,9 +50,11 @@ for idx in range(len(limitation)):
         pass
 
 result = pd.DataFrame(result)
-file_name = 'detik - '+str(datetime.datetime.now().year)+str(datetime.datetime.now().month)+str(datetime.datetime.now().date)
+file_name = 'detik - '+str(datetime.datetime.now())
 writer = pd.ExcelWriter('~/dataset/'+file_name+'.xlsx')
 result.to_excel(writer,'Sheet1')
 writer.save()
 
 display.stop()
+
+print('ALL IS DONE!!!')
