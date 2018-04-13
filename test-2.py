@@ -27,23 +27,26 @@ limitation = limitation.find_element_by_id('newsfeed-container')
 limitation = limitation.find_elements_by_tag_name('article')
 
 for idx in range(len(limitation)):
-    ### Temporary Result ###
-    dict_data = {}
+    try:
+        ### Temporary Result ###
+        dict_data = {}
+        
+        a = limitation[idx].find_element_by_class_name('desc_nhl')
+        a = a.find_element_by_tag_name('a')
+        
+        print(a.text)
+        
+        ### Title ###
+        dict_data.update({'title':a.text})
+        
+        ### Link ###
+        dict_data.update({'title':a.get_attribute('href')})
+        
+        ### Store the data ###
+        result.append(dict_data)
+    except:
+        pass
 
-    a = limitation[idx].find_element_by_class_name('desc_nhl')
-    a = a.find_element_by_tag_name('a')
-    
-    print(a.text)
-    
-    ### Title ###
-    dict_data.update({'title':a.text})
-    
-    ### Link ###
-    dict_data.update({'title':a.get_attribute('href')})
-    
-    ### Store the data ###
-    result.append(dict_data)
-    
 file_name = 'detik - '+datetime.datetime.now().year+datetime.datetime.now().month+datetime.datetime.now().date
 with open('~/gcloud-test-1/'+file_name+'.txt', 'w') as outfile:
     json.dump(result, outfile)
