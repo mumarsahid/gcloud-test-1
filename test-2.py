@@ -2,6 +2,8 @@
 
 from pyvirtualdisplay import Display
 from selenium import webdriver
+import pandas as pd
+import numpy as np
 import datetime
 import json
 
@@ -47,8 +49,10 @@ for idx in range(len(limitation)):
     except:
         pass
 
+result = pd.DataFrame(result)
 file_name = 'detik - '+str(datetime.datetime.now().year)+str(datetime.datetime.now().month)+str(datetime.datetime.now().date)
-with open('~/gcloud-test-1/'+file_name+'.txt', 'w') as outfile:
-    json.dump(result, outfile)
+writer = pd.ExcelWriter('~/gcloud-test-1/'+file_name+'.xlsx')
+result.to_excel(writer,'Sheet1')
+writer.save()
 
 display.stop()
