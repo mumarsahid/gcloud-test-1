@@ -47,7 +47,7 @@ for idx in range(len(limitation)):
     except:
         pass
 
-file_name = 'detik - '+datetime.datetime.now().year+datetime.datetime.now().month+datetime.datetime.now().date
+file_name = 'detik - '+str(datetime.datetime.now().year)+str(datetime.datetime.now().month)+str(datetime.datetime.now().date)
 with open('~/gcloud-test-1/'+file_name+'.txt', 'w') as outfile:
     json.dump(result, outfile)
 
