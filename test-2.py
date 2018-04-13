@@ -51,7 +51,7 @@ for idx in range(len(limitation)):
 
 result = pd.DataFrame(result)
 file_name = 'detik - '+str(datetime.datetime.now().year)+str(datetime.datetime.now().month)+str(datetime.datetime.now().date)
-writer = pd.ExcelWriter('~/gcloud-test-1/'+file_name+'.xlsx')
+writer = pd.ExcelWriter('~/dataset/'+file_name+'.xlsx')
 result.to_excel(writer,'Sheet1')
 writer.save()
 
