@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-
 from pyvirtualdisplay import Display
 from selenium import webdriver
 import pandas as pd
 import numpy as np
 import datetime
 import json
+import os
 
 display = Display(visible=0, size=(800, 600))
 display.start()
@@ -50,11 +49,12 @@ for idx in range(len(limitation)):
         pass
 
 result = pd.DataFrame(result)
-file_name = 'detik - '+str(datetime.datetime.now())
-writer = pd.ExcelWriter('~/dataset/'+file_name+'.xlsx')
+file_name = 'detik - '+str(datetime.datetime.now())+'.xlsx'
+writer = pd.ExcelWriter(os.path.join(os.path.expanduser('~'), 'dataset', file_name))
 result.to_excel(writer,'Sheet1')
 writer.save()
 
 display.stop()
 
+print()
 print('ALL IS DONE!!!')
