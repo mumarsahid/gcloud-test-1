@@ -10,7 +10,7 @@ display.start()
 
 url = 'http://www.detik.com/'
 
-print 'THIS IS TEST UMAR (browsing with chrome) for:', url
+print('THIS IS TEST UMAR (browsing with chrome) for:', url)
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(15)
